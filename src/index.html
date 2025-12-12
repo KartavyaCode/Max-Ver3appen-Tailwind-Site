@@ -11,6 +11,126 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      /* custom css using style */
+      /* Helper: fades an image smoothly when active */
+      .fade {
+        animation-duration: 20s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        opacity: 0;
+      }
+
+      /* IMAGE 1 appears 4 times: slots 0-2s, 4-6s, 8-10s, 12-14s */
+      @keyframes img0 {
+        0%,
+        11% {
+          opacity: 1;
+        } /* 0–1.8s */
+        12%,
+        24% {
+          opacity: 0;
+        }
+
+        25%,
+        36% {
+          opacity: 1;
+        } /* 4–5.7s */
+        37%,
+        49% {
+          opacity: 0;
+        }
+
+        50%,
+        61% {
+          opacity: 1;
+        } /* 8–9.7s */
+        62%,
+        74% {
+          opacity: 0;
+        }
+
+        75%,
+        86% {
+          opacity: 1;
+        } /* 12–13.7s */
+        87%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* IMAGE 2 — appears once at 2–4s */
+      @keyframes img1 {
+        12%,
+        24% {
+          opacity: 1;
+        } /* 1.9–3.8s */
+        0%,
+        11%,
+        25%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* IMAGE 3 — 6–8s */
+      @keyframes img2 {
+        37%,
+        49% {
+          opacity: 1;
+        }
+        0%,
+        36%,
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* IMAGE 4 — 10–12s */
+      @keyframes img3 {
+        62%,
+        74% {
+          opacity: 1;
+        }
+        0%,
+        61%,
+        75%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* IMAGE 5 — 14–16s */
+      @keyframes img4 {
+        87%,
+        100% {
+          opacity: 1;
+        }
+        0%,
+        86% {
+          opacity: 0;
+        }
+      }
+
+      /* Attach animations */
+      .animate-img0 {
+        animation-name: img0;
+      }
+      .animate-img1 {
+        animation-name: img1;
+      }
+      .animate-img2 {
+        animation-name: img2;
+      }
+      .animate-img3 {
+        animation-name: img3;
+      }
+      .animate-img4 {
+        animation-name: img4;
+      }
+    </style>
   </head>
   <body class="bg-black text-white">
     <!-- Hero Section -->
@@ -21,7 +141,9 @@
       class="bg-amber-400 h-screen bg-[url(../assets/hero-bg.jpg)] bg-cover flex flex-col justify-center items-center"
     >
       <div class="z-10 flex flex-col items-center">
-        <h1 class="font-['Quantico'] text-6xl text-shadow-black text-shadow-lg">Hi Mate!</h1>
+        <h1 class="font-['Quantico'] text-6xl text-shadow-black text-shadow-lg">
+          Hi Mate!
+        </h1>
         <h1
           class="font-['Bitcount_Prop_Single'] text-[120px] text-shadow-black text-shadow-lg"
         >
@@ -111,13 +233,19 @@
         class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20"
       ></div>
       <div class="relative z-10 flex items-center flex-col">
-        <h2 class="text-9xl font-['Bitcount_Prop_Single'] text-shadow-black text-shadow-lg">Red Bull Merch</h2>
-        <h4 class="text-4xl font-['Quantico'] text-gray-300 text-shadow-black text-shadow-md">
+        <h2
+          class="text-9xl font-['Bitcount_Prop_Single'] text-shadow-black text-shadow-lg"
+        >
+          Red Bull Merch
+        </h2>
+        <h4
+          class="text-4xl font-['Quantico'] text-gray-300 text-shadow-black text-shadow-md"
+        >
           Support & Become A Real Fan.
         </h4>
         <a
           class="font-semibold hover:shadow-md mt-20 m-5 cursor-pointer bg-white/20 shadow-sm shadow-black backdrop-blur-xl text-xl px-5 py-3 flex flex-row rounded-xl justify-center items-center font-['Quantico'] hover:bg-gray-900/20 hover:backdrop-blur-xl"
-          href="#ideology"
+          href="#bye-max"
         >
           Buy Merch
         </a>
@@ -140,7 +268,9 @@
           I have 4 of these <br />
           At home.
         </h2>
-        <h4 class="font-['Quantico'] text-3xl mb-25">I do race in F1 as well.</h4>
+        <h4 class="font-['Quantico'] text-3xl mb-25">
+          I do race in F1 as well.
+        </h4>
         <p class="font-['Quantico'] text-lg text-gray-300">
           Yeah, the four titles—it feels amazing, but honestly, once you've won
           one, you just want the next one. People ask me if it gets easier or if
@@ -160,11 +290,30 @@
     <!-- End -->
     <div
       id="bye-max"
-      class="justify-center items-center flex flex-col h-screen bg-[url(../assets/bye-bye.gif)] bg-cover relative col-span-2 mx-auto"
+      class="justify-center items-center flex flex-col relative mx-auto overflow-hidden w-full h-screen"
     >
-      <div
-        class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20"
-      ></div>
+      <img
+        src="../assets/slider/img0.gif"
+        class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20 w-full h-screen object-cover fade animate-img0"
+      />
+
+      <img
+        src="../assets/slider/img1.webp"
+        class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20 w-full h-screen object-cover fade animate-img1"
+      />
+      <img
+        src="../assets/slider/img2.webp"
+        class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20 w-full h-screen object-cover fade animate-img2"
+      />
+      <img
+        src="../assets/slider/img3.webp"
+        class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20 w-full h-screen object-cover fade animate-img3"
+      />
+      <img
+        src="../assets/slider/img4.avif"
+        class="absolute inset-0 bg-linear-to-l from-black/70 to-black/20 w-full h-screen object-cover fade animate-img4"
+      />
+
       <div class="relative z-10 flex items-center flex-col">
         <h2
           class="text-9xl font-['Bitcount_Prop_Single'] text-shadow-black text-shadow-md"
